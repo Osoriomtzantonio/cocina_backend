@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import engine, Base
-from routers import auth, recetas, categorias, favoritos
+from routers import auth, recetas, categorias, favoritos, calificaciones
 
 # Crea las tablas en SQLite si no existen
 Base.metadata.create_all(bind=engine)
@@ -26,6 +26,7 @@ app.include_router(auth.router)
 app.include_router(recetas.router)
 app.include_router(categorias.router)
 app.include_router(favoritos.router)
+app.include_router(calificaciones.router)
 
 
 @app.get("/")

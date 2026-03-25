@@ -87,3 +87,15 @@ class Favorito(Base):
 
     # Un usuario no puede guardar la misma receta dos veces
     __table_args__ = (UniqueConstraint("usuario_id", "receta_id"),)
+
+
+class Calificacion(Base):
+    __tablename__ = "calificaciones"
+
+    id          = Column(Integer, primary_key=True, index=True)
+    usuario_id  = Column(Integer, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+    receta_id   = Column(Integer, ForeignKey("recetas.id",  ondelete="CASCADE"), nullable=False)
+    puntuacion  = Column(Integer, nullable=False)  # 1 a 5 estrellas
+
+    # Un usuario solo puede calificar una receta una vez (se actualiza si ya existe)
+    __table_args__ = (UniqueConstraint("usuario_id", "receta_id"),)
