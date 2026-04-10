@@ -53,7 +53,7 @@ for cat in categorias:
         db.add(cat)
 
 db.commit()
-print("✓ Categorías creadas")
+print("OK - Categorias creadas")
 
 
 # ── RECETAS ───────────────────────────────────────────────────────────
@@ -517,6 +517,6 @@ for receta in recetas:
 
 db.commit()
 db.close()
-print("✓ Recetas creadas")
-print("\n¡Base de datos lista! Corre el servidor con:")
+print("OK - Recetas creadas")
+print("\nBase de datos lista! Corre el servidor con:")
 print("  uvicorn main:app --reload --host 0.0.0.0 --port 8000")
